@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище The_State_Duma_3Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Sozyvy">
+    <Key>
+      <PropertyRef Name="Nomer" />
+    </Key>
+    <Property Name="Nomer" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Konstitucionnoe_bolshinstvo" Type="int" />
+    <Property Name="Data_nachala" Type="date" Nullable="false" />
+    <Property Name="Data_konca" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="Хранилище The_State_Duma_3ModelContainer">
+    <EntitySet Name="Sozyvy" EntityType="Self.Sozyvy" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

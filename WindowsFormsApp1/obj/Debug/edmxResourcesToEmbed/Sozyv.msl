@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище The_State_Duma_3ModelContainer" CdmEntityContainer="The_State_Duma_3Entities">
+    <EntitySetMapping Name="Sozyvies">
+      <EntityTypeMapping TypeName="The_State_Duma_3Model.Sozyvy">
+        <MappingFragment StoreEntitySet="Sozyvy">
+          <ScalarProperty Name="Nomer" ColumnName="Nomer" />
+          <ScalarProperty Name="Konstitucionnoe_bolshinstvo" ColumnName="Konstitucionnoe_bolshinstvo" />
+          <ScalarProperty Name="Data_nachala" ColumnName="Data_nachala" />
+          <ScalarProperty Name="Data_konca" ColumnName="Data_konca" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

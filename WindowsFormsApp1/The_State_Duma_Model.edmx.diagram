@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1bad7a625a64417897fc19dc15332bd2" Name="Diagram1" ZoomLevel="65">
+        <EntityTypeShape EntityType="The_State_Duma_3Model.Deputaty" Width="1.5" PointX="5.25" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="The_State_Duma_3Model.Frakciya" Width="1.5" PointX="0.75" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="The_State_Duma_3Model.Golosovanie_za_kriteriy" Width="1.5" PointX="14.25" PointY="22" IsExpanded="true" />
+        <EntityTypeShape EntityType="The_State_Duma_3Model.Gruppovaya_rabota" Width="1.5" PointX="12" PointY="31.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="The_State_Duma_3Model.Komitet" Width="1.5" PointX="7.5" PointY="15.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="The_State_Duma_3Model.Kriteriy" Width="1.5" PointX="9.75" PointY="28" IsExpanded="true" />
+        <EntityTypeShape EntityType="The_State_Duma_3Model.Mesto_provedeniya" Width="1.5" PointX="6" PointY="33.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="The_State_Duma_3Model.Otvetstvennie_za_versiyu" Width="1.5" PointX="13" PointY="24.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="The_State_Duma_3Model.Pomoshnik_deputata_" Width="1.5" PointX="10.5" PointY="16.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="The_State_Duma_3Model.Predsedatel" Width="1.5" PointX="5.25" PointY="23.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="The_State_Duma_3Model.Rassmotrenie_ZP" Width="1.5" PointX="10.5" PointY="24.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="The_State_Duma_3Model.Sozyvy" Width="1.5" PointX="3" PointY="23.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="The_State_Duma_3Model.Sphera_deyatelnosti" Width="1.5" PointX="12.75" PointY="17.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="The_State_Duma_3Model.Status_kriteriya" Width="1.5" PointX="12" PointY="27.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="The_State_Duma_3Model.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="The_State_Duma_3Model.Versiya_feature" Width="1.5" PointX="17.25" PointY="21.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="The_State_Duma_3Model.Versiya_ZP" Width="1.5" PointX="9.75" PointY="33.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="The_State_Duma_3Model.Zakonoproekt" Width="1.5" PointX="7.5" PointY="29.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="The_State_Duma_3Model.Zasedanie" Width="1.5" PointX="8.25" PointY="23" IsExpanded="true" />
+        <AssociationConnector Association="The_State_Duma_3Model.FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="The_State_Duma_3Model.FK13" ManuallyRouted="false" />
+        <AssociationConnector Association="The_State_Duma_3Model.FK17" ManuallyRouted="false" />
+        <AssociationConnector Association="The_State_Duma_3Model.FK2" ManuallyRouted="false" />
+        <AssociationConnector Association="The_State_Duma_3Model.FK3" ManuallyRouted="false" />
+        <AssociationConnector Association="The_State_Duma_3Model.FK4" ManuallyRouted="false" />
+        <AssociationConnector Association="The_State_Duma_3Model.FK668" ManuallyRouted="false" />
+        <AssociationConnector Association="The_State_Duma_3Model.new_FK6" ManuallyRouted="false" />
+        <AssociationConnector Association="The_State_Duma_3Model.new_FK8" ManuallyRouted="false" />
+        <AssociationConnector Association="The_State_Duma_3Model.FK__Pomoshnik__Frakc__381A47C8" ManuallyRouted="false" />
+        <AssociationConnector Association="The_State_Duma_3Model.FK8" ManuallyRouted="false" />
+        <AssociationConnector Association="The_State_Duma_3Model.FK16" ManuallyRouted="false" />
+        <AssociationConnector Association="The_State_Duma_3Model.new_FK2" ManuallyRouted="false" />
+        <AssociationConnector Association="The_State_Duma_3Model.new_FK3" ManuallyRouted="false" />
+        <AssociationConnector Association="The_State_Duma_3Model.new_FK4" ManuallyRouted="false" />
+        <AssociationConnector Association="The_State_Duma_3Model.FK34" ManuallyRouted="false" />
+        <AssociationConnector Association="The_State_Duma_3Model.FK965" ManuallyRouted="false" />
+        <AssociationConnector Association="The_State_Duma_3Model.FK9" ManuallyRouted="false" />
+        <AssociationConnector Association="The_State_Duma_3Model.new_FK5" ManuallyRouted="false" />
+        <AssociationConnector Association="The_State_Duma_3Model.new_FK7" ManuallyRouted="false" />
+        <AssociationConnector Association="The_State_Duma_3Model.FK7" ManuallyRouted="false" />
+        <AssociationConnector Association="The_State_Duma_3Model.FK11" ManuallyRouted="false" />
+        <AssociationConnector Association="The_State_Duma_3Model.FK12" ManuallyRouted="false" />
+        <AssociationConnector Association="The_State_Duma_3Model.FK995" ManuallyRouted="false" />
+        <AssociationConnector Association="The_State_Duma_3Model.FK10" ManuallyRouted="false" />
+        <AssociationConnector Association="The_State_Duma_3Model.new_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="The_State_Duma_3Model.Deputatskiy_nabor" ManuallyRouted="false" />
+        <AssociationConnector Association="The_State_Duma_3Model.Jurnal_ucheta_pomoshnikov" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

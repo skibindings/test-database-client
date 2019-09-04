@@ -1,0 +1,817 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="The_State_Duma_3Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <ComplexType Name="DistributionOfDeputies_Result">
+    <Property Name="id_frakcii" Type="Int32" />
+    <Property Name="kolvo_deputatov" Type="Int32" />
+  </ComplexType>
+  <ComplexType Name="DistributionOfDeputiesIncludeAges_Result">
+    <Property Name="Nomer_frakcii_" Type="Int32" />
+    <Property Name="kolvo" Type="Int32" />
+  </ComplexType>
+  <ComplexType Name="DistributionOfHelpersIncludeAges_Result">
+    <Property Name="Nomer_frakcii_2" Type="Int32" />
+    <Property Name="kolvo_2" Type="Int32" />
+  </ComplexType>
+  <EntityType Name="Deputaty">
+    <Key>
+      <PropertyRef Name="Partiyniy_bilet" />
+    </Key>
+    <Property Name="Partiyniy_bilet" Type="Int32" Nullable="false" />
+    <Property Name="Familiya" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Imya" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Otchestovo" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="Region_vyborov" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="ID_frakcii" Type="Int32" Nullable="false" />
+    <Property Name="ID_komiteta" Type="Int32" Nullable="false" />
+    <Property Name="Data_rozhdeniya" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Frakciya" Relationship="Self.FK1" FromRole="Deputaty" ToRole="Frakciya" />
+    <NavigationProperty Name="Zakonoproekts" Relationship="Self.FK13" FromRole="Deputaty" ToRole="Zakonoproekt" />
+    <NavigationProperty Name="Golosovanie_za_kriteriy" Relationship="Self.FK17" FromRole="Deputaty" ToRole="Golosovanie_za_kriteriy" />
+    <NavigationProperty Name="Komitet" Relationship="Self.FK2" FromRole="Deputaty" ToRole="Komitet" />
+    <NavigationProperty Name="Komitets" Relationship="Self.FK3" FromRole="Deputaty" ToRole="Komitet" />
+    <NavigationProperty Name="Frakciyas" Relationship="Self.FK4" FromRole="Deputaty" ToRole="Frakciya" />
+    <NavigationProperty Name="Pomoshnik_deputata_" Relationship="Self.FK668" FromRole="Deputaty" ToRole="Pomoshnik_deputata_" />
+    <NavigationProperty Name="Otvetstvennie_za_versiyu" Relationship="Self.new_FK6" FromRole="Deputaty" ToRole="Otvetstvennie_za_versiyu" />
+    <NavigationProperty Name="Versiya_feature" Relationship="Self.new_FK8" FromRole="Deputaty" ToRole="Versiya_feature" />
+    <NavigationProperty Name="Sozyvies" Relationship="Self.Deputatskiy_nabor" FromRole="Deputaty" ToRole="Sozyvy" />
+  </EntityType>
+  <EntityType Name="Frakciya">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Naimenovanie" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Kolichestvo_deputatov" Type="Int32" Nullable="false" />
+    <Property Name="Kolichestvo_deputatov_posledniy_sozyv" Type="Int32" Nullable="false" />
+    <Property Name="Lider_frakcii" Type="Int32" />
+    <NavigationProperty Name="Deputaties" Relationship="Self.FK1" FromRole="Frakciya" ToRole="Deputaty" />
+    <NavigationProperty Name="Deputaty" Relationship="Self.FK4" FromRole="Frakciya" ToRole="Deputaty" />
+    <NavigationProperty Name="Pomoshnik_deputata_" Relationship="Self.FK__Pomoshnik__Frakc__381A47C8" FromRole="Frakciya" ToRole="Pomoshnik_deputata_" />
+    <NavigationProperty Name="Sozyvies" Relationship="Self.FK8" FromRole="Frakciya" ToRole="Sozyvy" />
+  </EntityType>
+  <EntityType Name="Golosovanie_za_kriteriy">
+    <Key>
+      <PropertyRef Name="ID_statusa_kriteriya" />
+      <PropertyRef Name="Deputat" />
+    </Key>
+    <Property Name="ID_statusa_kriteriya" Type="Int32" Nullable="false" />
+    <Property Name="Deputat" Type="Int32" Nullable="false" />
+    <Property Name="Za_Protiv" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Deputaty" Relationship="Self.FK17" FromRole="Golosovanie_za_kriteriy" ToRole="Deputaty" />
+    <NavigationProperty Name="Status_kriteriya" Relationship="Self.FK16" FromRole="Golosovanie_za_kriteriy" ToRole="Status_kriteriya" />
+  </EntityType>
+  <EntityType Name="Gruppovaya_rabota">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Zasedanie" Type="Int32" Nullable="false" />
+    <Property Name="Versiya_nachalnaya" Type="Int32" Nullable="false" />
+    <Property Name="Versiya_konechnaya" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Versiya_ZP" Relationship="Self.new_FK2" FromRole="Gruppovaya_rabota" ToRole="Versiya_ZP" />
+    <NavigationProperty Name="Versiya_ZP1" Relationship="Self.new_FK3" FromRole="Gruppovaya_rabota" ToRole="Versiya_ZP" />
+    <NavigationProperty Name="Zasedanie1" Relationship="Self.new_FK4" FromRole="Gruppovaya_rabota" ToRole="Zasedanie" />
+  </EntityType>
+  <EntityType Name="Komitet">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Naimenovanie" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Website" Type="String" MaxLength="2083" FixedLength="false" Unicode="true" />
+    <Property Name="God_osnovaniya" Type="Int32" Nullable="false" />
+    <Property Name="Kolichestvo_chlenov" Type="Int32" Nullable="false" />
+    <Property Name="Kolichestvo_chlenov_posledniy_sozyv" Type="Int32" Nullable="false" />
+    <Property Name="Glava_komiteta" Type="Int32" />
+    <NavigationProperty Name="Deputaties" Relationship="Self.FK2" FromRole="Komitet" ToRole="Deputaty" />
+    <NavigationProperty Name="Deputaty" Relationship="Self.FK3" FromRole="Komitet" ToRole="Deputaty" />
+  </EntityType>
+  <EntityType Name="Kriteriy">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Naimenovanie" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ID_Zakonoproekta" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Zakonoproekt" Relationship="Self.FK34" FromRole="Kriteriy" ToRole="Zakonoproekt" />
+    <NavigationProperty Name="Status_kriteriya" Relationship="Self.FK965" FromRole="Kriteriy" ToRole="Status_kriteriya" />
+  </EntityType>
+  <EntityType Name="Mesto_provedeniya">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Gorod" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Ulica" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Dom" Type="Int32" Nullable="false" />
+    <Property Name="Korpus" Type="Int32" />
+    <NavigationProperty Name="Zasedanies" Relationship="Self.FK9" FromRole="Mesto_provedeniya" ToRole="Zasedanie" />
+  </EntityType>
+  <EntityType Name="Otvetstvennie_za_versiyu">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Versiya" Type="Int32" Nullable="false" />
+    <Property Name="Deputat" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Deputaty" Relationship="Self.new_FK6" FromRole="Otvetstvennie_za_versiyu" ToRole="Deputaty" />
+    <NavigationProperty Name="Versiya_ZP" Relationship="Self.new_FK5" FromRole="Otvetstvennie_za_versiyu" ToRole="Versiya_ZP" />
+    <NavigationProperty Name="Versiya_feature" Relationship="Self.new_FK7" FromRole="Otvetstvennie_za_versiyu" ToRole="Versiya_feature" />
+  </EntityType>
+  <EntityType Name="Pomoshnik_deputata_">
+    <Key>
+      <PropertyRef Name="Udostoverenie" />
+    </Key>
+    <Property Name="Udostoverenie" Type="Int32" Nullable="false" />
+    <Property Name="Familiya" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Imya" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Otchestovo" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="Grajdanstvo" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Data_rozhdeniya" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Frakciya" Type="Int32" />
+    <Property Name="Patron" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Deputaty" Relationship="Self.FK668" FromRole="Pomoshnik_deputata_" ToRole="Deputaty" />
+    <NavigationProperty Name="Frakciya1" Relationship="Self.FK__Pomoshnik__Frakc__381A47C8" FromRole="Pomoshnik_deputata_" ToRole="Frakciya" />
+    <NavigationProperty Name="Sphera_deyatelnosti" Relationship="Self.Jurnal_ucheta_pomoshnikov" FromRole="Pomoshnik_deputata_" ToRole="Sphera_deyatelnosti" />
+  </EntityType>
+  <EntityType Name="Predsedatel">
+    <Key>
+      <PropertyRef Name="Nomer" />
+    </Key>
+    <Property Name="Nomer" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Familiya" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Imya" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Otchestovo" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="Data_nachala" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Data_konca" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Nomer_sozyva" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Sozyvy" Relationship="Self.FK7" FromRole="Predsedatel" ToRole="Sozyvy" />
+  </EntityType>
+  <EntityType Name="Rassmotrenie_ZP">
+    <Key>
+      <PropertyRef Name="Nomer_rassmotreniya" />
+    </Key>
+    <Property Name="Nomer_rassmotreniya" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nomer_zasedaniya" Type="Int32" Nullable="false" />
+    <Property Name="ID_zakonoproekta" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Zasedanie" Relationship="Self.FK11" FromRole="Rassmotrenie_ZP" ToRole="Zasedanie" />
+    <NavigationProperty Name="Zakonoproekt" Relationship="Self.FK12" FromRole="Rassmotrenie_ZP" ToRole="Zakonoproekt" />
+    <NavigationProperty Name="Status_kriteriya" Relationship="Self.FK995" FromRole="Rassmotrenie_ZP" ToRole="Status_kriteriya" />
+  </EntityType>
+  <EntityType Name="Sozyvy">
+    <Key>
+      <PropertyRef Name="Nomer" />
+    </Key>
+    <Property Name="Nomer" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Konstitucionnoe_bolshinstvo" Type="Int32" />
+    <Property Name="Data_nachala" Type="DateTime" Precision="7" />
+    <Property Name="Data_konca" Type="DateTime" Precision="7" />
+    <NavigationProperty Name="Frakciya" Relationship="Self.FK8" FromRole="Sozyvy" ToRole="Frakciya" />
+    <NavigationProperty Name="Predsedatels" Relationship="Self.FK7" FromRole="Sozyvy" ToRole="Predsedatel" />
+    <NavigationProperty Name="Zasedanies" Relationship="Self.FK10" FromRole="Sozyvy" ToRole="Zasedanie" />
+    <NavigationProperty Name="Deputaties" Relationship="Self.Deputatskiy_nabor" FromRole="Sozyvy" ToRole="Deputaty" />
+  </EntityType>
+  <EntityType Name="Sphera_deyatelnosti">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Naimenovanie" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Pomoshnik_deputata_" Relationship="Self.Jurnal_ucheta_pomoshnikov" FromRole="Sphera_deyatelnosti" ToRole="Pomoshnik_deputata_" />
+  </EntityType>
+  <EntityType Name="Status_kriteriya">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nomer_rassmotreniya" Type="Int32" Nullable="false" />
+    <Property Name="ID_kriteriya" Type="Int32" Nullable="false" />
+    <Property Name="Odobren" Type="Boolean" />
+    <NavigationProperty Name="Golosovanie_za_kriteriy" Relationship="Self.FK16" FromRole="Status_kriteriya" ToRole="Golosovanie_za_kriteriy" />
+    <NavigationProperty Name="Kriteriy" Relationship="Self.FK965" FromRole="Status_kriteriya" ToRole="Kriteriy" />
+    <NavigationProperty Name="Rassmotrenie_ZP" Relationship="Self.FK995" FromRole="Status_kriteriya" ToRole="Rassmotrenie_ZP" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Versiya_feature">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Otvetstvennost" Type="Int32" Nullable="false" />
+    <Property Name="Deputat" Type="Int32" Nullable="false" />
+    <Property Name="Opisanie" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Deputaty" Relationship="Self.new_FK8" FromRole="Versiya_feature" ToRole="Deputaty" />
+    <NavigationProperty Name="Otvetstvennie_za_versiyu" Relationship="Self.new_FK7" FromRole="Versiya_feature" ToRole="Otvetstvennie_za_versiyu" />
+  </EntityType>
+  <EntityType Name="Versiya_ZP">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nomer" Type="Int32" Nullable="false" />
+    <Property Name="Zakonoproekt" Type="Int32" Nullable="false" />
+    <Property Name="Data_razravotki" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Gruppovaya_rabota" Relationship="Self.new_FK2" FromRole="Versiya_ZP" ToRole="Gruppovaya_rabota" />
+    <NavigationProperty Name="Gruppovaya_rabota1" Relationship="Self.new_FK3" FromRole="Versiya_ZP" ToRole="Gruppovaya_rabota" />
+    <NavigationProperty Name="Otvetstvennie_za_versiyu" Relationship="Self.new_FK5" FromRole="Versiya_ZP" ToRole="Otvetstvennie_za_versiyu" />
+    <NavigationProperty Name="Zakonoproekt1" Relationship="Self.new_FK1" FromRole="Versiya_ZP" ToRole="Zakonoproekt" />
+  </EntityType>
+  <EntityType Name="Zakonoproekt">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Naimenovanie" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Opisanie" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Vnesen" Type="Int32" Nullable="false" />
+    <Property Name="Okonchatelniy_status" Type="Int32" />
+    <NavigationProperty Name="Deputaty" Relationship="Self.FK13" FromRole="Zakonoproekt" ToRole="Deputaty" />
+    <NavigationProperty Name="Kriteriys" Relationship="Self.FK34" FromRole="Zakonoproekt" ToRole="Kriteriy" />
+    <NavigationProperty Name="Rassmotrenie_ZP" Relationship="Self.FK12" FromRole="Zakonoproekt" ToRole="Rassmotrenie_ZP" />
+    <NavigationProperty Name="Versiya_ZP" Relationship="Self.new_FK1" FromRole="Zakonoproekt" ToRole="Versiya_ZP" />
+  </EntityType>
+  <EntityType Name="Zasedanie">
+    <Key>
+      <PropertyRef Name="Nomer" />
+    </Key>
+    <Property Name="Nomer" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Naimenovanie" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Tip" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Data_provedeniya" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Vremya_nachala" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="Vremya_konca" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="Status_zasedaniya" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="Mesto_provedeniya" Type="Int32" Nullable="false" />
+    <Property Name="Nomer_sozyva" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Gruppovaya_rabota" Relationship="Self.new_FK4" FromRole="Zasedanie" ToRole="Gruppovaya_rabota" />
+    <NavigationProperty Name="Mesto_provedeniya1" Relationship="Self.FK9" FromRole="Zasedanie" ToRole="Mesto_provedeniya" />
+    <NavigationProperty Name="Rassmotrenie_ZP" Relationship="Self.FK11" FromRole="Zasedanie" ToRole="Rassmotrenie_ZP" />
+    <NavigationProperty Name="Sozyvy" Relationship="Self.FK10" FromRole="Zasedanie" ToRole="Sozyvy" />
+  </EntityType>
+  <Association Name="FK1">
+    <End Role="Frakciya" Type="Self.Frakciya" Multiplicity="1" />
+    <End Role="Deputaty" Type="Self.Deputaty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Frakciya">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Deputaty">
+        <PropertyRef Name="ID_frakcii" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK13">
+    <End Role="Deputaty" Type="Self.Deputaty" Multiplicity="1" />
+    <End Role="Zakonoproekt" Type="Self.Zakonoproekt" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Deputaty">
+        <PropertyRef Name="Partiyniy_bilet" />
+      </Principal>
+      <Dependent Role="Zakonoproekt">
+        <PropertyRef Name="Vnesen" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK17">
+    <End Role="Deputaty" Type="Self.Deputaty" Multiplicity="1" />
+    <End Role="Golosovanie_za_kriteriy" Type="Self.Golosovanie_za_kriteriy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Deputaty">
+        <PropertyRef Name="Partiyniy_bilet" />
+      </Principal>
+      <Dependent Role="Golosovanie_za_kriteriy">
+        <PropertyRef Name="Deputat" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK2">
+    <End Role="Komitet" Type="Self.Komitet" Multiplicity="1" />
+    <End Role="Deputaty" Type="Self.Deputaty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Komitet">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Deputaty">
+        <PropertyRef Name="ID_komiteta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK3">
+    <End Role="Deputaty" Type="Self.Deputaty" Multiplicity="0..1" />
+    <End Role="Komitet" Type="Self.Komitet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Deputaty">
+        <PropertyRef Name="Partiyniy_bilet" />
+      </Principal>
+      <Dependent Role="Komitet">
+        <PropertyRef Name="Glava_komiteta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK4">
+    <End Role="Deputaty" Type="Self.Deputaty" Multiplicity="0..1" />
+    <End Role="Frakciya" Type="Self.Frakciya" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Deputaty">
+        <PropertyRef Name="Partiyniy_bilet" />
+      </Principal>
+      <Dependent Role="Frakciya">
+        <PropertyRef Name="Lider_frakcii" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK668">
+    <End Role="Deputaty" Type="Self.Deputaty" Multiplicity="1" />
+    <End Role="Pomoshnik_deputata_" Type="Self.Pomoshnik_deputata_" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Deputaty">
+        <PropertyRef Name="Partiyniy_bilet" />
+      </Principal>
+      <Dependent Role="Pomoshnik_deputata_">
+        <PropertyRef Name="Patron" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="new_FK6">
+    <End Role="Deputaty" Type="Self.Deputaty" Multiplicity="1" />
+    <End Role="Otvetstvennie_za_versiyu" Type="Self.Otvetstvennie_za_versiyu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Deputaty">
+        <PropertyRef Name="Partiyniy_bilet" />
+      </Principal>
+      <Dependent Role="Otvetstvennie_za_versiyu">
+        <PropertyRef Name="Deputat" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="new_FK8">
+    <End Role="Deputaty" Type="Self.Deputaty" Multiplicity="1" />
+    <End Role="Versiya_feature" Type="Self.Versiya_feature" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Deputaty">
+        <PropertyRef Name="Partiyniy_bilet" />
+      </Principal>
+      <Dependent Role="Versiya_feature">
+        <PropertyRef Name="Deputat" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Pomoshnik__Frakc__381A47C8">
+    <End Role="Frakciya" Type="Self.Frakciya" Multiplicity="0..1" />
+    <End Role="Pomoshnik_deputata_" Type="Self.Pomoshnik_deputata_" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Frakciya">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Pomoshnik_deputata_">
+        <PropertyRef Name="Frakciya" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK8">
+    <End Role="Frakciya" Type="Self.Frakciya" Multiplicity="0..1" />
+    <End Role="Sozyvy" Type="Self.Sozyvy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Frakciya">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Sozyvy">
+        <PropertyRef Name="Konstitucionnoe_bolshinstvo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK16">
+    <End Role="Status_kriteriya" Type="Self.Status_kriteriya" Multiplicity="1" />
+    <End Role="Golosovanie_za_kriteriy" Type="Self.Golosovanie_za_kriteriy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Status_kriteriya">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Golosovanie_za_kriteriy">
+        <PropertyRef Name="ID_statusa_kriteriya" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="new_FK2">
+    <End Role="Versiya_ZP" Type="Self.Versiya_ZP" Multiplicity="1" />
+    <End Role="Gruppovaya_rabota" Type="Self.Gruppovaya_rabota" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Versiya_ZP">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Gruppovaya_rabota">
+        <PropertyRef Name="Versiya_nachalnaya" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="new_FK3">
+    <End Role="Versiya_ZP" Type="Self.Versiya_ZP" Multiplicity="1" />
+    <End Role="Gruppovaya_rabota" Type="Self.Gruppovaya_rabota" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Versiya_ZP">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Gruppovaya_rabota">
+        <PropertyRef Name="Versiya_konechnaya" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="new_FK4">
+    <End Role="Zasedanie" Type="Self.Zasedanie" Multiplicity="1" />
+    <End Role="Gruppovaya_rabota" Type="Self.Gruppovaya_rabota" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Zasedanie">
+        <PropertyRef Name="Nomer" />
+      </Principal>
+      <Dependent Role="Gruppovaya_rabota">
+        <PropertyRef Name="Zasedanie" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK34">
+    <End Role="Zakonoproekt" Type="Self.Zakonoproekt" Multiplicity="1" />
+    <End Role="Kriteriy" Type="Self.Kriteriy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Zakonoproekt">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Kriteriy">
+        <PropertyRef Name="ID_Zakonoproekta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK965">
+    <End Role="Kriteriy" Type="Self.Kriteriy" Multiplicity="1" />
+    <End Role="Status_kriteriya" Type="Self.Status_kriteriya" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kriteriy">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Status_kriteriya">
+        <PropertyRef Name="ID_kriteriya" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK9">
+    <End Role="Mesto_provedeniya" Type="Self.Mesto_provedeniya" Multiplicity="1" />
+    <End Role="Zasedanie" Type="Self.Zasedanie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Mesto_provedeniya">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Zasedanie">
+        <PropertyRef Name="Mesto_provedeniya" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="new_FK5">
+    <End Role="Versiya_ZP" Type="Self.Versiya_ZP" Multiplicity="1" />
+    <End Role="Otvetstvennie_za_versiyu" Type="Self.Otvetstvennie_za_versiyu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Versiya_ZP">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Otvetstvennie_za_versiyu">
+        <PropertyRef Name="Versiya" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="new_FK7">
+    <End Role="Otvetstvennie_za_versiyu" Type="Self.Otvetstvennie_za_versiyu" Multiplicity="1" />
+    <End Role="Versiya_feature" Type="Self.Versiya_feature" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Otvetstvennie_za_versiyu">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Versiya_feature">
+        <PropertyRef Name="Otvetstvennost" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK7">
+    <End Role="Sozyvy" Type="Self.Sozyvy" Multiplicity="1" />
+    <End Role="Predsedatel" Type="Self.Predsedatel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sozyvy">
+        <PropertyRef Name="Nomer" />
+      </Principal>
+      <Dependent Role="Predsedatel">
+        <PropertyRef Name="Nomer_sozyva" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK11">
+    <End Role="Zasedanie" Type="Self.Zasedanie" Multiplicity="1" />
+    <End Role="Rassmotrenie_ZP" Type="Self.Rassmotrenie_ZP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Zasedanie">
+        <PropertyRef Name="Nomer" />
+      </Principal>
+      <Dependent Role="Rassmotrenie_ZP">
+        <PropertyRef Name="Nomer_zasedaniya" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK12">
+    <End Role="Zakonoproekt" Type="Self.Zakonoproekt" Multiplicity="1" />
+    <End Role="Rassmotrenie_ZP" Type="Self.Rassmotrenie_ZP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Zakonoproekt">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Rassmotrenie_ZP">
+        <PropertyRef Name="ID_zakonoproekta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK995">
+    <End Role="Rassmotrenie_ZP" Type="Self.Rassmotrenie_ZP" Multiplicity="1" />
+    <End Role="Status_kriteriya" Type="Self.Status_kriteriya" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rassmotrenie_ZP">
+        <PropertyRef Name="Nomer_rassmotreniya" />
+      </Principal>
+      <Dependent Role="Status_kriteriya">
+        <PropertyRef Name="Nomer_rassmotreniya" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK10">
+    <End Role="Sozyvy" Type="Self.Sozyvy" Multiplicity="1" />
+    <End Role="Zasedanie" Type="Self.Zasedanie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sozyvy">
+        <PropertyRef Name="Nomer" />
+      </Principal>
+      <Dependent Role="Zasedanie">
+        <PropertyRef Name="Nomer_sozyva" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="new_FK1">
+    <End Role="Zakonoproekt" Type="Self.Zakonoproekt" Multiplicity="1" />
+    <End Role="Versiya_ZP" Type="Self.Versiya_ZP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Zakonoproekt">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Versiya_ZP">
+        <PropertyRef Name="Zakonoproekt" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Deputatskiy_nabor">
+    <End Role="Sozyvy" Type="Self.Sozyvy" Multiplicity="*" />
+    <End Role="Deputaty" Type="Self.Deputaty" Multiplicity="*" />
+  </Association>
+  <Association Name="Jurnal_ucheta_pomoshnikov">
+    <End Role="Pomoshnik_deputata_" Type="Self.Pomoshnik_deputata_" Multiplicity="*" />
+    <End Role="Sphera_deyatelnosti" Type="Self.Sphera_deyatelnosti" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="The_State_Duma_Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Deputaties" EntityType="Self.Deputaty" />
+    <EntitySet Name="Frakciyas" EntityType="Self.Frakciya" />
+    <EntitySet Name="Golosovanie_za_kriteriy" EntityType="Self.Golosovanie_za_kriteriy" />
+    <EntitySet Name="Gruppovaya_rabota" EntityType="Self.Gruppovaya_rabota" />
+    <EntitySet Name="Komitets" EntityType="Self.Komitet" />
+    <EntitySet Name="Kriteriys" EntityType="Self.Kriteriy" />
+    <EntitySet Name="Mesto_provedeniya" EntityType="Self.Mesto_provedeniya" />
+    <EntitySet Name="Otvetstvennie_za_versiyu" EntityType="Self.Otvetstvennie_za_versiyu" />
+    <EntitySet Name="Pomoshnik_deputata_" EntityType="Self.Pomoshnik_deputata_" />
+    <EntitySet Name="Predsedatels" EntityType="Self.Predsedatel" />
+    <EntitySet Name="Rassmotrenie_ZP" EntityType="Self.Rassmotrenie_ZP" />
+    <EntitySet Name="Sozyvies" EntityType="Self.Sozyvy" />
+    <EntitySet Name="Sphera_deyatelnosti" EntityType="Self.Sphera_deyatelnosti" />
+    <EntitySet Name="Status_kriteriya" EntityType="Self.Status_kriteriya" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="Versiya_feature" EntityType="Self.Versiya_feature" />
+    <EntitySet Name="Versiya_ZP" EntityType="Self.Versiya_ZP" />
+    <EntitySet Name="Zakonoproekts" EntityType="Self.Zakonoproekt" />
+    <EntitySet Name="Zasedanies" EntityType="Self.Zasedanie" />
+    <AssociationSet Name="FK1" Association="Self.FK1">
+      <End Role="Frakciya" EntitySet="Frakciyas" />
+      <End Role="Deputaty" EntitySet="Deputaties" />
+    </AssociationSet>
+    <AssociationSet Name="FK13" Association="Self.FK13">
+      <End Role="Deputaty" EntitySet="Deputaties" />
+      <End Role="Zakonoproekt" EntitySet="Zakonoproekts" />
+    </AssociationSet>
+    <AssociationSet Name="FK17" Association="Self.FK17">
+      <End Role="Deputaty" EntitySet="Deputaties" />
+      <End Role="Golosovanie_za_kriteriy" EntitySet="Golosovanie_za_kriteriy" />
+    </AssociationSet>
+    <AssociationSet Name="FK2" Association="Self.FK2">
+      <End Role="Komitet" EntitySet="Komitets" />
+      <End Role="Deputaty" EntitySet="Deputaties" />
+    </AssociationSet>
+    <AssociationSet Name="FK3" Association="Self.FK3">
+      <End Role="Deputaty" EntitySet="Deputaties" />
+      <End Role="Komitet" EntitySet="Komitets" />
+    </AssociationSet>
+    <AssociationSet Name="FK4" Association="Self.FK4">
+      <End Role="Deputaty" EntitySet="Deputaties" />
+      <End Role="Frakciya" EntitySet="Frakciyas" />
+    </AssociationSet>
+    <AssociationSet Name="FK668" Association="Self.FK668">
+      <End Role="Deputaty" EntitySet="Deputaties" />
+      <End Role="Pomoshnik_deputata_" EntitySet="Pomoshnik_deputata_" />
+    </AssociationSet>
+    <AssociationSet Name="new_FK6" Association="Self.new_FK6">
+      <End Role="Deputaty" EntitySet="Deputaties" />
+      <End Role="Otvetstvennie_za_versiyu" EntitySet="Otvetstvennie_za_versiyu" />
+    </AssociationSet>
+    <AssociationSet Name="new_FK8" Association="Self.new_FK8">
+      <End Role="Deputaty" EntitySet="Deputaties" />
+      <End Role="Versiya_feature" EntitySet="Versiya_feature" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Pomoshnik__Frakc__381A47C8" Association="Self.FK__Pomoshnik__Frakc__381A47C8">
+      <End Role="Frakciya" EntitySet="Frakciyas" />
+      <End Role="Pomoshnik_deputata_" EntitySet="Pomoshnik_deputata_" />
+    </AssociationSet>
+    <AssociationSet Name="FK8" Association="Self.FK8">
+      <End Role="Frakciya" EntitySet="Frakciyas" />
+      <End Role="Sozyvy" EntitySet="Sozyvies" />
+    </AssociationSet>
+    <AssociationSet Name="FK16" Association="Self.FK16">
+      <End Role="Status_kriteriya" EntitySet="Status_kriteriya" />
+      <End Role="Golosovanie_za_kriteriy" EntitySet="Golosovanie_za_kriteriy" />
+    </AssociationSet>
+    <AssociationSet Name="new_FK2" Association="Self.new_FK2">
+      <End Role="Versiya_ZP" EntitySet="Versiya_ZP" />
+      <End Role="Gruppovaya_rabota" EntitySet="Gruppovaya_rabota" />
+    </AssociationSet>
+    <AssociationSet Name="new_FK3" Association="Self.new_FK3">
+      <End Role="Versiya_ZP" EntitySet="Versiya_ZP" />
+      <End Role="Gruppovaya_rabota" EntitySet="Gruppovaya_rabota" />
+    </AssociationSet>
+    <AssociationSet Name="new_FK4" Association="Self.new_FK4">
+      <End Role="Zasedanie" EntitySet="Zasedanies" />
+      <End Role="Gruppovaya_rabota" EntitySet="Gruppovaya_rabota" />
+    </AssociationSet>
+    <AssociationSet Name="FK34" Association="Self.FK34">
+      <End Role="Zakonoproekt" EntitySet="Zakonoproekts" />
+      <End Role="Kriteriy" EntitySet="Kriteriys" />
+    </AssociationSet>
+    <AssociationSet Name="FK965" Association="Self.FK965">
+      <End Role="Kriteriy" EntitySet="Kriteriys" />
+      <End Role="Status_kriteriya" EntitySet="Status_kriteriya" />
+    </AssociationSet>
+    <AssociationSet Name="FK9" Association="Self.FK9">
+      <End Role="Mesto_provedeniya" EntitySet="Mesto_provedeniya" />
+      <End Role="Zasedanie" EntitySet="Zasedanies" />
+    </AssociationSet>
+    <AssociationSet Name="new_FK5" Association="Self.new_FK5">
+      <End Role="Versiya_ZP" EntitySet="Versiya_ZP" />
+      <End Role="Otvetstvennie_za_versiyu" EntitySet="Otvetstvennie_za_versiyu" />
+    </AssociationSet>
+    <AssociationSet Name="new_FK7" Association="Self.new_FK7">
+      <End Role="Otvetstvennie_za_versiyu" EntitySet="Otvetstvennie_za_versiyu" />
+      <End Role="Versiya_feature" EntitySet="Versiya_feature" />
+    </AssociationSet>
+    <AssociationSet Name="FK7" Association="Self.FK7">
+      <End Role="Sozyvy" EntitySet="Sozyvies" />
+      <End Role="Predsedatel" EntitySet="Predsedatels" />
+    </AssociationSet>
+    <AssociationSet Name="FK11" Association="Self.FK11">
+      <End Role="Zasedanie" EntitySet="Zasedanies" />
+      <End Role="Rassmotrenie_ZP" EntitySet="Rassmotrenie_ZP" />
+    </AssociationSet>
+    <AssociationSet Name="FK12" Association="Self.FK12">
+      <End Role="Zakonoproekt" EntitySet="Zakonoproekts" />
+      <End Role="Rassmotrenie_ZP" EntitySet="Rassmotrenie_ZP" />
+    </AssociationSet>
+    <AssociationSet Name="FK995" Association="Self.FK995">
+      <End Role="Rassmotrenie_ZP" EntitySet="Rassmotrenie_ZP" />
+      <End Role="Status_kriteriya" EntitySet="Status_kriteriya" />
+    </AssociationSet>
+    <AssociationSet Name="FK10" Association="Self.FK10">
+      <End Role="Sozyvy" EntitySet="Sozyvies" />
+      <End Role="Zasedanie" EntitySet="Zasedanies" />
+    </AssociationSet>
+    <AssociationSet Name="new_FK1" Association="Self.new_FK1">
+      <End Role="Zakonoproekt" EntitySet="Zakonoproekts" />
+      <End Role="Versiya_ZP" EntitySet="Versiya_ZP" />
+    </AssociationSet>
+    <AssociationSet Name="Deputatskiy_nabor" Association="Self.Deputatskiy_nabor">
+      <End Role="Sozyvy" EntitySet="Sozyvies" />
+      <End Role="Deputaty" EntitySet="Deputaties" />
+    </AssociationSet>
+    <AssociationSet Name="Jurnal_ucheta_pomoshnikov" Association="Self.Jurnal_ucheta_pomoshnikov">
+      <End Role="Pomoshnik_deputata_" EntitySet="Pomoshnik_deputata_" />
+      <End Role="Sphera_deyatelnosti" EntitySet="Sphera_deyatelnosti" />
+    </AssociationSet>
+    <FunctionImport Name="DistributionOfDeputies" IsComposable="true" ReturnType="Collection(The_State_Duma_3Model.DistributionOfDeputies_Result)">
+      <Parameter Name="Sozyv" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DistributionOfDeputiesIncludeAges" IsComposable="true" ReturnType="Collection(The_State_Duma_3Model.DistributionOfDeputiesIncludeAges_Result)">
+      <Parameter Name="Sozyv" Mode="In" Type="Int32" />
+      <Parameter Name="Age_start" Mode="In" Type="Int32" />
+      <Parameter Name="Age_end" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DistributionOfHelpersIncludeAges" IsComposable="true" ReturnType="Collection(The_State_Duma_3Model.DistributionOfHelpersIncludeAges_Result)">
+      <Parameter Name="Sozyv" Mode="In" Type="Int32" />
+      <Parameter Name="Age_start" Mode="In" Type="Int32" />
+      <Parameter Name="Age_end" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="FactionsPercentage" ReturnType="Collection(The_State_Duma_3Model.FactionsPercentage_Result)">
+      <Parameter Name="Sozyv" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetSozyvyStatus" ReturnType="Collection(The_State_Duma_3Model.GetSozyvyStatus_Result)" />
+    <FunctionImport Name="SozyvyPercentage" ReturnType="Collection(The_State_Duma_3Model.SozyvyPercentage_Result)" />
+    <FunctionImport Name="SozyvyStats" ReturnType="Collection(The_State_Duma_3Model.SozyvyStats_Result)" />
+    <FunctionImport Name="SozyvyVozrastnoi_sostav" />
+    <FunctionImport Name="SozyvyVozrastnoi_sostav_new" ReturnType="Collection(The_State_Duma_3Model.SozyvyVozrastnoi_sostav_new_Result)" />
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(The_State_Duma_3Model.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(The_State_Duma_3Model.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+    <FunctionImport Name="UpdateSessionStatus" />
+    <FunctionImport Name="Vozrastnoi_sostav">
+      <Parameter Name="Sozyv" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Vozrastnoi_sostav_new" ReturnType="Collection(The_State_Duma_3Model.Vozrastnoi_sostav_new_Result)">
+      <Parameter Name="Sozyv" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="FactionsPercentage_Result">
+    <Property Type="String" Name="Faction" Nullable="true" MaxLength="25" />
+    <Property Type="Decimal" Name="Percentage" Nullable="true" Precision="24" Scale="6" />
+  </ComplexType>
+  <ComplexType Name="GetSozyvyStatus_Result">
+    <Property Type="Int32" Name="Nomer_sozyva_" Nullable="true" />
+    <Property Type="Int32" Name="Kolvo_zasedaniy_" Nullable="true" />
+    <Property Type="Int32" Name="Kolvo_rassmotreniy_" Nullable="true" />
+    <Property Type="Int32" Name="Kolvo_grupp_rabot_" Nullable="true" />
+    <Property Type="Decimal" Name="Results" Nullable="true" Precision="10" Scale="3" />
+  </ComplexType>
+  <ComplexType Name="SozyvyPercentage_Result">
+    <Property Type="String" Name="Faction" Nullable="true" MaxLength="25" />
+    <Property Type="Decimal" Name="Percentage" Nullable="true" Precision="24" Scale="6" />
+  </ComplexType>
+  <ComplexType Name="SozyvyStats_Result">
+    <Property Type="String" Name="Faction" Nullable="true" MaxLength="25" />
+    <Property Type="Decimal" Name="Percentage" Nullable="true" Precision="24" Scale="6" />
+  </ComplexType>
+  <ComplexType Name="SozyvyVozrastnoi_sostav_new_Result">
+    <Property Type="String" Name="Frakcii" Nullable="true" MaxLength="25" />
+    <Property Type="Int32" Name="C20_25" Nullable="true" />
+    <Property Type="Int32" Name="C25_45" Nullable="true" />
+    <Property Type="Int32" Name="C35_50" Nullable="true" />
+    <Property Type="Int32" Name="C50_65" Nullable="true" />
+    <Property Type="Int32" Name="C65_100" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="Vozrastnoi_sostav_new_Result">
+    <Property Type="String" Name="Frakcii" Nullable="true" MaxLength="25" />
+    <Property Type="Int32" Name="C20_25" Nullable="true" />
+    <Property Type="Int32" Name="C25_45" Nullable="true" />
+    <Property Type="Int32" Name="C35_50" Nullable="true" />
+    <Property Type="Int32" Name="C50_65" Nullable="true" />
+    <Property Type="Int32" Name="C65_100" Nullable="true" />
+  </ComplexType>
+</Schema>

@@ -1,0 +1,338 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище The_State_Duma_3ModelContainer" CdmEntityContainer="The_State_Duma_Entities">
+    <EntitySetMapping Name="Deputaties">
+      <EntityTypeMapping TypeName="The_State_Duma_3Model.Deputaty">
+        <MappingFragment StoreEntitySet="Deputaty">
+          <ScalarProperty Name="Partiyniy_bilet" ColumnName="Partiyniy_bilet" />
+          <ScalarProperty Name="Familiya" ColumnName="Familiya" />
+          <ScalarProperty Name="Imya" ColumnName="Imya" />
+          <ScalarProperty Name="Otchestovo" ColumnName="Otchestovo" />
+          <ScalarProperty Name="Region_vyborov" ColumnName="Region_vyborov" />
+          <ScalarProperty Name="ID_frakcii" ColumnName="ID_frakcii" />
+          <ScalarProperty Name="ID_komiteta" ColumnName="ID_komiteta" />
+          <ScalarProperty Name="Data_rozhdeniya" ColumnName="Data_rozhdeniya" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Frakciyas">
+      <EntityTypeMapping TypeName="The_State_Duma_3Model.Frakciya">
+        <MappingFragment StoreEntitySet="Frakciya">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Naimenovanie" ColumnName="Naimenovanie" />
+          <ScalarProperty Name="Kolichestvo_deputatov" ColumnName="Kolichestvo_deputatov" />
+          <ScalarProperty Name="Kolichestvo_deputatov_posledniy_sozyv" ColumnName="Kolichestvo_deputatov_posledniy_sozyv" />
+          <ScalarProperty Name="Lider_frakcii" ColumnName="Lider_frakcii" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Golosovanie_za_kriteriy">
+      <EntityTypeMapping TypeName="The_State_Duma_3Model.Golosovanie_za_kriteriy">
+        <MappingFragment StoreEntitySet="Golosovanie_za_kriteriy">
+          <ScalarProperty Name="ID_statusa_kriteriya" ColumnName="ID_statusa_kriteriya" />
+          <ScalarProperty Name="Deputat" ColumnName="Deputat" />
+          <ScalarProperty Name="Za_Protiv" ColumnName="Za_Protiv" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Gruppovaya_rabota">
+      <EntityTypeMapping TypeName="The_State_Duma_3Model.Gruppovaya_rabota">
+        <MappingFragment StoreEntitySet="Gruppovaya_rabota">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Zasedanie" ColumnName="Zasedanie" />
+          <ScalarProperty Name="Versiya_nachalnaya" ColumnName="Versiya_nachalnaya" />
+          <ScalarProperty Name="Versiya_konechnaya" ColumnName="Versiya_konechnaya" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Komitets">
+      <EntityTypeMapping TypeName="The_State_Duma_3Model.Komitet">
+        <MappingFragment StoreEntitySet="Komitet">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Naimenovanie" ColumnName="Naimenovanie" />
+          <ScalarProperty Name="Website" ColumnName="Website" />
+          <ScalarProperty Name="God_osnovaniya" ColumnName="God_osnovaniya" />
+          <ScalarProperty Name="Kolichestvo_chlenov" ColumnName="Kolichestvo_chlenov" />
+          <ScalarProperty Name="Kolichestvo_chlenov_posledniy_sozyv" ColumnName="Kolichestvo_chlenov_posledniy_sozyv" />
+          <ScalarProperty Name="Glava_komiteta" ColumnName="Glava_komiteta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Kriteriys">
+      <EntityTypeMapping TypeName="The_State_Duma_3Model.Kriteriy">
+        <MappingFragment StoreEntitySet="Kriteriy">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Naimenovanie" ColumnName="Naimenovanie" />
+          <ScalarProperty Name="ID_Zakonoproekta" ColumnName="ID_Zakonoproekta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Mesto_provedeniya">
+      <EntityTypeMapping TypeName="The_State_Duma_3Model.Mesto_provedeniya">
+        <MappingFragment StoreEntitySet="Mesto_provedeniya">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Gorod" ColumnName="Gorod" />
+          <ScalarProperty Name="Ulica" ColumnName="Ulica" />
+          <ScalarProperty Name="Dom" ColumnName="Dom" />
+          <ScalarProperty Name="Korpus" ColumnName="Korpus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Otvetstvennie_za_versiyu">
+      <EntityTypeMapping TypeName="The_State_Duma_3Model.Otvetstvennie_za_versiyu">
+        <MappingFragment StoreEntitySet="Otvetstvennie_za_versiyu">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Versiya" ColumnName="Versiya" />
+          <ScalarProperty Name="Deputat" ColumnName="Deputat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pomoshnik_deputata_">
+      <EntityTypeMapping TypeName="The_State_Duma_3Model.Pomoshnik_deputata_">
+        <MappingFragment StoreEntitySet="Pomoshnik_deputata_">
+          <ScalarProperty Name="Udostoverenie" ColumnName="Udostoverenie" />
+          <ScalarProperty Name="Familiya" ColumnName="Familiya" />
+          <ScalarProperty Name="Imya" ColumnName="Imya" />
+          <ScalarProperty Name="Otchestovo" ColumnName="Otchestovo" />
+          <ScalarProperty Name="Grajdanstvo" ColumnName="Grajdanstvo" />
+          <ScalarProperty Name="Data_rozhdeniya" ColumnName="Data_rozhdeniya" />
+          <ScalarProperty Name="Frakciya" ColumnName="Frakciya" />
+          <ScalarProperty Name="Patron" ColumnName="Patron" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Predsedatels">
+      <EntityTypeMapping TypeName="The_State_Duma_3Model.Predsedatel">
+        <MappingFragment StoreEntitySet="Predsedatel">
+          <ScalarProperty Name="Nomer" ColumnName="Nomer" />
+          <ScalarProperty Name="Familiya" ColumnName="Familiya" />
+          <ScalarProperty Name="Imya" ColumnName="Imya" />
+          <ScalarProperty Name="Otchestovo" ColumnName="Otchestovo" />
+          <ScalarProperty Name="Data_nachala" ColumnName="Data_nachala" />
+          <ScalarProperty Name="Data_konca" ColumnName="Data_konca" />
+          <ScalarProperty Name="Nomer_sozyva" ColumnName="Nomer_sozyva" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rassmotrenie_ZP">
+      <EntityTypeMapping TypeName="The_State_Duma_3Model.Rassmotrenie_ZP">
+        <MappingFragment StoreEntitySet="Rassmotrenie_ZP">
+          <ScalarProperty Name="Nomer_rassmotreniya" ColumnName="Nomer_rassmotreniya" />
+          <ScalarProperty Name="Nomer_zasedaniya" ColumnName="Nomer_zasedaniya" />
+          <ScalarProperty Name="ID_zakonoproekta" ColumnName="ID_zakonoproekta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sozyvies">
+      <EntityTypeMapping TypeName="The_State_Duma_3Model.Sozyvy">
+        <MappingFragment StoreEntitySet="Sozyvy">
+          <ScalarProperty Name="Nomer" ColumnName="Nomer" />
+          <ScalarProperty Name="Konstitucionnoe_bolshinstvo" ColumnName="Konstitucionnoe_bolshinstvo" />
+          <ScalarProperty Name="Data_nachala" ColumnName="Data_nachala" />
+          <ScalarProperty Name="Data_konca" ColumnName="Data_konca" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sphera_deyatelnosti">
+      <EntityTypeMapping TypeName="The_State_Duma_3Model.Sphera_deyatelnosti">
+        <MappingFragment StoreEntitySet="Sphera_deyatelnosti">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Naimenovanie" ColumnName="Naimenovanie" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Status_kriteriya">
+      <EntityTypeMapping TypeName="The_State_Duma_3Model.Status_kriteriya">
+        <MappingFragment StoreEntitySet="Status_kriteriya">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Nomer_rassmotreniya" ColumnName="Nomer_rassmotreniya" />
+          <ScalarProperty Name="ID_kriteriya" ColumnName="ID_kriteriya" />
+          <ScalarProperty Name="Odobren" ColumnName="Odobren" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="The_State_Duma_3Model.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Versiya_feature">
+      <EntityTypeMapping TypeName="The_State_Duma_3Model.Versiya_feature">
+        <MappingFragment StoreEntitySet="Versiya_feature">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Otvetstvennost" ColumnName="Otvetstvennost" />
+          <ScalarProperty Name="Deputat" ColumnName="Deputat" />
+          <ScalarProperty Name="Opisanie" ColumnName="Opisanie" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Versiya_ZP">
+      <EntityTypeMapping TypeName="The_State_Duma_3Model.Versiya_ZP">
+        <MappingFragment StoreEntitySet="Versiya_ZP">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Nomer" ColumnName="Nomer" />
+          <ScalarProperty Name="Zakonoproekt" ColumnName="Zakonoproekt" />
+          <ScalarProperty Name="Data_razravotki" ColumnName="Data_razravotki" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Zakonoproekts">
+      <EntityTypeMapping TypeName="The_State_Duma_3Model.Zakonoproekt">
+        <MappingFragment StoreEntitySet="Zakonoproekt">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Naimenovanie" ColumnName="Naimenovanie" />
+          <ScalarProperty Name="Opisanie" ColumnName="Opisanie" />
+          <ScalarProperty Name="Vnesen" ColumnName="Vnesen" />
+          <ScalarProperty Name="Okonchatelniy_status" ColumnName="Okonchatelniy_status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Zasedanies">
+      <EntityTypeMapping TypeName="The_State_Duma_3Model.Zasedanie">
+        <MappingFragment StoreEntitySet="Zasedanie">
+          <ScalarProperty Name="Nomer" ColumnName="Nomer" />
+          <ScalarProperty Name="Naimenovanie" ColumnName="Naimenovanie" />
+          <ScalarProperty Name="Tip" ColumnName="Tip" />
+          <ScalarProperty Name="Data_provedeniya" ColumnName="Data_provedeniya" />
+          <ScalarProperty Name="Vremya_nachala" ColumnName="Vremya_nachala" />
+          <ScalarProperty Name="Vremya_konca" ColumnName="Vremya_konca" />
+          <ScalarProperty Name="Status_zasedaniya" ColumnName="Status_zasedaniya" />
+          <ScalarProperty Name="Mesto_provedeniya" ColumnName="Mesto_provedeniya" />
+          <ScalarProperty Name="Nomer_sozyva" ColumnName="Nomer_sozyva" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="Deputatskiy_nabor" TypeName="The_State_Duma_3Model.Deputatskiy_nabor" StoreEntitySet="Deputatskiy_nabor">
+      <EndProperty Name="Sozyvy">
+        <ScalarProperty Name="Nomer" ColumnName="Nomer_sozyva" />
+      </EndProperty>
+      <EndProperty Name="Deputaty">
+        <ScalarProperty Name="Partiyniy_bilet" ColumnName="Deputat" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="Jurnal_ucheta_pomoshnikov" TypeName="The_State_Duma_3Model.Jurnal_ucheta_pomoshnikov" StoreEntitySet="Jurnal_ucheta_pomoshnikov">
+      <EndProperty Name="Pomoshnik_deputata_">
+        <ScalarProperty Name="Udostoverenie" ColumnName="Udostoverenie_pomoshnika" />
+      </EndProperty>
+      <EndProperty Name="Sphera_deyatelnosti">
+        <ScalarProperty Name="ID" ColumnName="ID_sphery_deyatelnosti" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <FunctionImportMapping FunctionName="Хранилище The_State_Duma_3Model.DistributionOfDeputies" FunctionImportName="DistributionOfDeputies">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="The_State_Duma_3Model.DistributionOfDeputies_Result">
+          <ScalarProperty Name="id_frakcii" ColumnName="id_frakcii" />
+          <ScalarProperty Name="kolvo_deputatov" ColumnName="kolvo_deputatov" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionName="Хранилище The_State_Duma_3Model.DistributionOfDeputiesIncludeAges" FunctionImportName="DistributionOfDeputiesIncludeAges">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="The_State_Duma_3Model.DistributionOfDeputiesIncludeAges_Result">
+          <ScalarProperty Name="Nomer_frakcii_" ColumnName="Nomer_frakcii_" />
+          <ScalarProperty Name="kolvo" ColumnName="kolvo" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionName="Хранилище The_State_Duma_3Model.DistributionOfHelpersIncludeAges" FunctionImportName="DistributionOfHelpersIncludeAges">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="The_State_Duma_3Model.DistributionOfHelpersIncludeAges_Result">
+          <ScalarProperty Name="Nomer_frakcii_2" ColumnName="Nomer_frakcii_2" />
+          <ScalarProperty Name="kolvo_2" ColumnName="kolvo_2" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="FactionsPercentage" FunctionName="Хранилище The_State_Duma_3Model.FactionsPercentage">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="The_State_Duma_3Model.FactionsPercentage_Result">
+          <ScalarProperty Name="Faction" ColumnName="Faction" />
+          <ScalarProperty Name="Percentage" ColumnName="Percentage" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetSozyvyStatus" FunctionName="Хранилище The_State_Duma_3Model.GetSozyvyStatus">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="The_State_Duma_3Model.GetSozyvyStatus_Result">
+          <ScalarProperty Name="Nomer_sozyva_" ColumnName="Nomer_sozyva_" />
+          <ScalarProperty Name="Kolvo_zasedaniy_" ColumnName="Kolvo_zasedaniy_" />
+          <ScalarProperty Name="Kolvo_rassmotreniy_" ColumnName="Kolvo_rassmotreniy_" />
+          <ScalarProperty Name="Kolvo_grupp_rabot_" ColumnName="Kolvo_grupp_rabot_" />
+          <ScalarProperty Name="Results" ColumnName="Results" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SozyvyPercentage" FunctionName="Хранилище The_State_Duma_3Model.SozyvyPercentage">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="The_State_Duma_3Model.SozyvyPercentage_Result">
+          <ScalarProperty Name="Faction" ColumnName="Faction" />
+          <ScalarProperty Name="Percentage" ColumnName="Percentage" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SozyvyStats" FunctionName="Хранилище The_State_Duma_3Model.SozyvyStats">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="The_State_Duma_3Model.SozyvyStats_Result">
+          <ScalarProperty Name="Faction" ColumnName="Faction" />
+          <ScalarProperty Name="Percentage" ColumnName="Percentage" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SozyvyVozrastnoi_sostav" FunctionName="Хранилище The_State_Duma_3Model.SozyvyVozrastnoi_sostav" />
+    <FunctionImportMapping FunctionImportName="SozyvyVozrastnoi_sostav_new" FunctionName="Хранилище The_State_Duma_3Model.SozyvyVozrastnoi_sostav_new">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="The_State_Duma_3Model.SozyvyVozrastnoi_sostav_new_Result">
+          <ScalarProperty Name="Frakcii" ColumnName="Frakcii" />
+          <ScalarProperty Name="C20_25" ColumnName="20-25" />
+          <ScalarProperty Name="C25_45" ColumnName="25-45" />
+          <ScalarProperty Name="C35_50" ColumnName="35-50" />
+          <ScalarProperty Name="C50_65" ColumnName="50-65" />
+          <ScalarProperty Name="C65_100" ColumnName="65-100" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="Хранилище The_State_Duma_3Model.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="Хранилище The_State_Duma_3Model.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="Хранилище The_State_Duma_3Model.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="Хранилище The_State_Duma_3Model.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="The_State_Duma_3Model.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="Хранилище The_State_Duma_3Model.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="The_State_Duma_3Model.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="Хранилище The_State_Duma_3Model.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="Хранилище The_State_Duma_3Model.sp_upgraddiagrams" />
+    <FunctionImportMapping FunctionImportName="UpdateSessionStatus" FunctionName="Хранилище The_State_Duma_3Model.UpdateSessionStatus" />
+    <FunctionImportMapping FunctionImportName="Vozrastnoi_sostav" FunctionName="Хранилище The_State_Duma_3Model.Vozrastnoi_sostav" />
+    <FunctionImportMapping FunctionImportName="Vozrastnoi_sostav_new" FunctionName="Хранилище The_State_Duma_3Model.Vozrastnoi_sostav_new">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="The_State_Duma_3Model.Vozrastnoi_sostav_new_Result">
+          <ScalarProperty Name="Frakcii" ColumnName="Frakcii" />
+          <ScalarProperty Name="C20_25" ColumnName="20-25" />
+          <ScalarProperty Name="C25_45" ColumnName="25-45" />
+          <ScalarProperty Name="C35_50" ColumnName="35-50" />
+          <ScalarProperty Name="C50_65" ColumnName="50-65" />
+          <ScalarProperty Name="C65_100" ColumnName="65-100" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>
