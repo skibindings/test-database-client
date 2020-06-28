@@ -3,3 +3,8 @@
 ## Технологии
 - ADO.NET Entity Framework - взаимодействие с базой данных 
 - Windows Forms - фронтенд для клиента
+
+## Скриншоты
+![Форма логина](login_form.png)
+![Форма меню](menu_form.png)
+![Табличная форма](table_form.png)
